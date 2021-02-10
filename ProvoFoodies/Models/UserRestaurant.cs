@@ -8,7 +8,7 @@ namespace ProvoFoodies.Models
 {
     public class UserRestaurant
     {
-        // Props for a restaurant that the user submits
+        // Props for a restaurant suggestions that the user submits
         [Required, Display(Name="User Name")]
         public string UserName { get; set; }
         [Required, Display(Name="Restaurant Name")]
