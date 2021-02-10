@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProvoFoodies.Models.UserRestaurant>
+
+@{
+    ViewData["Title"] = "User Restaurants";
+}
+
+<h1>User Restaurants</h1>
+
+<p>
+    <a asp-action="AddRestaurant">Add Restaurant</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RestaurantName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FavoriteDish)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantName)
+            </td>
+            <td>
+                <!-- Check to see if the favorite dish was entered. I did this in a different way thatn on the home page just to get more experience in different ways of doing the same thing -->
+                @if (item.FavoriteDish != null) 
+                {
+                    @Html.DisplayFor(modelItem => item.FavoriteDish)
+                } else
+                {
+                    <p>It's all tasty!</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

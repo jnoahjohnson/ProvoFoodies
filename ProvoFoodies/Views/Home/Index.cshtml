@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Provo Foodies";
+}
+
+@model IEnumerable<string> 
+
+<div class="text-center">
+    <h1 class="display-4 mb-2 font-weight-bolder">Welcome to Provo Foodies</h1>
+    <h2 class="bg-primary text-white py-3 rounded">Checkout the Top 5 restaurants in Provo!</h2>
+    <div class="top-restaurant-container">
+        <ul class="list-group">
+            @foreach(string restaurant in Model)
+            {
+                <li class="list-group-item">@restaurant</li>
+            }
+        </ul>
+    </div>
+    <div class="actions-container mt-3">
+        <a asp-action="AddRestaurant" class="btn btn-primary">Add Restaurant</a>
+        <a asp-action="ViewUserRestaurants" class="btn btn-primary">View Other Restaurants</a>
+    </div>
+</div>
